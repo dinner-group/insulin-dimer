@@ -8,19 +8,6 @@ from MDAnalysis.lib.distances import distance_array, self_distance_array, calc_a
 from MDAnalysis.analysis.base import AnalysisBase, AnalysisFromFunction
 from MDAnalysis.analysis.hydrogenbonds import WaterBridgeAnalysis
 
-# Defining Class
-"""
-1. Distance:
-    def def_dist(uni):
-    def make_dist(uni):
-2. Disorder:
-    def def_disorder(uni):
-    def make_disorder(uni, ref):
-3. Reltaive Rotation:
-    class rel_rot(AnalysisBase):
-    def def_relrot(uni):
-    def make_relrot(uni):
-"""
         
 chainA = ["PROA", "PROC"]
 chainB = ["PROB", "PROD"]
@@ -79,22 +66,7 @@ def make_IRMSD(uni, ref):
     
     IRMSD_inst = RMSD(uni, ref, select=interface_CAs_str)
     return IRMSD_inst
-"""
-def make_NativeContact(uni, ref):
-    #2. Fractinal Native Contacts
-    ch1_heavy_str = f'segid PROA PROB and not (same mass as (name HA))'
-    ch2_heavy_str = f'segid PROC PROD and not (same mass as (name HA))'
-    
-    sel_ag1, sel_ag2 = uni.select_atoms(ch1_heavy_str), uni.select_atoms(ch2_heavy_str)
-    ref_ag1, ref_ag2 = ref.select_atoms(ch1_heavy_str), ref.select_atoms(ch2_heavy_str)
-    
-    NC_inst = Contacts(uni,\
-                       select=(sel_ag1, sel_ag2),\
-                       refgroup=(ref_ag1, ref_ag2),\
-                       radius=4.5, pbc=True,\
-                       method='soft_cut', beta=5.0, lambda_constant=2)
-    return NC_inst
-"""
+
 def hydration_DEShaw(ags, water_o, **kwargs):
     results=np.zeros((len(ags), 2), dtype=int)
     for i0, ag in enumerate(ags):
@@ -131,6 +103,7 @@ def make_ISolv(uni, ref):
 
 def N_Heavy(ag1, ag2, **kwargs):
     return len(capped_distance(ag1, ag2, **kwargs))
+
 def make_HeavyContact(uni):
     #N: The nubmer of cross-contact
     ch1_heavy = uni.select_atoms(f'segid PROA PROB and not (same mass as (name HA))')

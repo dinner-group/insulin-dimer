@@ -1,0 +1,66 @@
+.
+├── analysis
+│   ├── cg.ipynb
+│   ├── proj.ipynb
+│   ├── README.md
+│   ├── step0_featurize
+│   │   └── scripts
+│   │       ├── analysis_array.sbatch
+│   │       ├── analysis_nocat.py
+│   │       ├── analysis.py
+│   │       ├── analysis.sbatch
+│   │       └── mda_ins_dim.py
+│   ├── step1_build_MSM
+│   │   ├── buildMSM.ipynb
+│   │   └── outputs
+│   ├── step2_validate_choice
+│   │   ├── step2a_nstate_lag
+│   │   │   ├── outputs
+│   │   │   ├── q_nstate_lag.ipynb
+│   │   │   └── scripts
+│   │   │       ├── est_q.py
+│   │   │       └── est_q.sbatch
+│   │   ├── step2b_nmem_lag
+│   │   │   ├── outputs
+│   │   │   ├── q_nmem_lag.ipynb
+│   │   │   └── scripts
+│   │   │       ├── est_q.py
+│   │   │       └── est_q.sbatch
+│   │   └── step2c_rate
+│   │       ├── outputs
+│   │       ├── rate.ipynb
+│   │       └── scripts
+│   │           ├── rate_div.py
+│   │           ├── rate_div.sbatch
+│   │           ├── rate_mem.py
+│   │           └── rate_mem.sbatch
+│   ├── step3_estimate_TPT
+│   │   ├── step3a_markov
+│   │   │   ├── outputs
+│   │   │   └── scripts
+│   │   │       ├── est_relflux.py
+│   │   │       └── est_relflux.sbatch
+│   │   └── step3b_cg
+│   │       └── scripts
+│   │           ├── est_relflux.py
+│   │           └── est_relflux.sbatch
+│   └── step4_cg
+├── checklist
+├── copy_src.sh
+├── mdrun [x] -> Initial coordinates and outputs files
+│   ├── inputs
+│   │   ├── itfr.txt
+│   │   └── parm
+│   │       ├── ins-dim.psf
+│   │       └── toppar
+│   │           ├── par_all36m_prot.prm
+│   │           ├── top_all36_prot.rtf
+│   │           └── toppar_water_ions.str
+│   ├── README.md
+│   └── scripts
+│       ├── run_module.sh
+│       ├── run.py
+│       └── run.sbatch
+└── README.md
+
+27 directories, 37 files

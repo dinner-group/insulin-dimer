@@ -3,6 +3,7 @@
 #SBATCH --output=%x.out
 #SBATCH --error=%x.err
 
+#SBATCH --account=pi-dinner
 #SBATCH --nodes=1
 ##SBATCH --time=2-00:00:00
 #SBATCH --partition=beagle3
